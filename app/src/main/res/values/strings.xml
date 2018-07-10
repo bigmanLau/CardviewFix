@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CustomCardView</string>
+    <string name="label_class_modify">课程修改</string>
+</resources>
