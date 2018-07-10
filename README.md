@@ -1,4 +1,4 @@
-# CardviewFix
+# CardviewFix 简书地址 https://www.jianshu.com/p/8c8b2708bdb4
 ![](https://github.com/bigmanLau/CardviewFix/blob/master/jietu.jpg?raw=true)
 #####原生的CardView虽然好，但是公司UI设计必须修改阴影颜色
 效果图如下
