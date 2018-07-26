@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CustomCardView.iml" filepath="$PROJECT_DIR$/CustomCardView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cardviewlibrary/cardviewlibrary.iml" filepath="$PROJECT_DIR$/cardviewlibrary/cardviewlibrary.iml" />
     </modules>
   </component>
 </project>
