@@ -1,5 +1,7 @@
 # CardviewFix 简书地址 [https://www.jianshu.com/p/8c8b2708bdb4]
 #####原生的CardView虽然好，但是公司UI设计必须修改阴影颜色
+依赖方式
+[![](https://jitpack.io/v/bigmanLau/CardviewFix.svg)](https://jitpack.io/#bigmanLau/CardviewFix)
 效果图如下
 *![jietu.jpg](https://upload-images.jianshu.io/upload_images/12262980-2d7ae0b5444b9361.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
