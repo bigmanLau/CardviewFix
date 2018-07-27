@@ -15,9 +15,7 @@ import com.bigman.wmzx.cardviewlibrary.library.CardViewDelegate
  * create time == 15:48
  */
 internal class CardViewApi17Impl : CardViewBaseImpl() {
-    override fun initialize(cardView: CardViewDelegate, context: Context, backgroundColor: ColorStateList, radius: Float, elevation: Float, maxElevation: Float) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+
 
     override fun initStatic() {
         RoundRectDrawableWithShadow.sRoundRectHelper = object : RoundRectDrawableWithShadow.RoundRectHelper {

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/white"
     >
 
     <com.bigman.wmzx.customcardview.library.CardView
@@ -16,6 +17,7 @@
         app:endColor="@color/cardview_shadow_end_color"
         app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
+        app:topDelta="-1"
         >
 
         <LinearLayout
@@ -125,6 +127,7 @@
         app:endColor="@color/cardview_shadow_end_color"
         app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
+        app:topDelta="0"
         >
 
         <LinearLayout
@@ -234,6 +237,7 @@
         app:endColor="@color/cardview_shadow_end_color"
         app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
+        app:topDelta="1"
         >
 
         <LinearLayout

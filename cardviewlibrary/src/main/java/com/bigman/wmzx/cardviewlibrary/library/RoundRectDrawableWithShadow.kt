@@ -42,6 +42,7 @@ internal class RoundRectDrawableWithShadow : Drawable {
     private val mShadowStartColor: Int
 
     private val mShadowEndColor: Int
+    private var mTopDelta: Float
 
     private var mAddPaddingForCorners = true
 
@@ -95,9 +96,10 @@ internal class RoundRectDrawableWithShadow : Drawable {
         }
 
     constructor(resources: Resources, backgroundColor: ColorStateList, radius: Float,
-                shadowSize: Float, maxShadowSize: Float) {
+                shadowSize: Float, maxShadowSize: Float,topDelta:Float) {
         mShadowStartColor = resources.getColor(R.color.cardview_shadow_start_color)
         mShadowEndColor = resources.getColor(R.color.cardview_shadow_end_color)
+        mTopDelta =topDelta
         mInsetShadow = resources.getDimensionPixelSize(R.dimen.cardview_compat_inset_shadow)
         mPaint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.DITHER_FLAG)
         setBackground(backgroundColor)
@@ -112,9 +114,10 @@ internal class RoundRectDrawableWithShadow : Drawable {
 
     constructor(resources: Resources, backgroundColor: ColorStateList,
                 radius: Float, shadowSize: Float, maxShadowSize: Float,
-                startColor: Int, endColor: Int) {
+                startColor: Int, endColor: Int,topDelta:Float) {
         mShadowStartColor = startColor
         mShadowEndColor = endColor
+        mTopDelta = topDelta
         mInsetShadow = resources.getDimensionPixelSize(R.dimen.cardview_compat_inset_shadow)
         mPaint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.DITHER_FLAG)
         setBackground(backgroundColor)
@@ -219,23 +222,34 @@ internal class RoundRectDrawableWithShadow : Drawable {
         return PixelFormat.TRANSLUCENT
     }
 
+    /**
+     * 绘制主要工作
+     */
     override fun draw(canvas: Canvas) {
         if (mDirty) {
             buildComponents(bounds)
             mDirty = false
         }
-        canvas.translate(0f, mRawShadowSize / 2)
+        if(mTopDelta>1f){
+            mTopDelta=1f
+        }else if(mTopDelta>-1f&&mTopDelta<0f){
+            mTopDelta=-1f
+        }
+        canvas.translate(0f, mRawShadowSize / 2*mTopDelta)
         drawShadow(canvas)
-        canvas.translate(0f, -mRawShadowSize / 2)
+        canvas.translate(0f, -mRawShadowSize / 2*mTopDelta)
         sRoundRectHelper!!.drawRoundRect(canvas, mCardBounds, mCornerRadius, mPaint)
     }
 
+    /**
+     * 绘制四个角阴影
+     */
     private fun drawShadow(canvas: Canvas) {
         val edgeShadowTop = -mCornerRadius - mShadowSize
         val inset = mCornerRadius + mInsetShadow.toFloat() + mRawShadowSize / 2
         val drawHorizontalEdges = mCardBounds.width() - 2 * inset > 0
         val drawVerticalEdges = mCardBounds.height() - 2 * inset > 0
-        // LT
+        // LT 左上
         var saved = canvas.save()
         canvas.translate(mCardBounds.left + inset, mCardBounds.top + inset)
         canvas.drawPath(mCornerShadowPath!!, mCornerShadowPaint!!)
@@ -245,7 +259,7 @@ internal class RoundRectDrawableWithShadow : Drawable {
                     mEdgeShadowPaint!!)
         }
         canvas.restoreToCount(saved)
-        // RB
+        // RB 右下
         saved = canvas.save()
         canvas.translate(mCardBounds.right - inset, mCardBounds.bottom - inset)
         canvas.rotate(180f)
@@ -256,7 +270,7 @@ internal class RoundRectDrawableWithShadow : Drawable {
                     mEdgeShadowPaint!!)
         }
         canvas.restoreToCount(saved)
-        // LB
+        // LB 左下
         saved = canvas.save()
         canvas.translate(mCardBounds.left + inset, mCardBounds.bottom - inset)
         canvas.rotate(270f)
@@ -266,7 +280,7 @@ internal class RoundRectDrawableWithShadow : Drawable {
                     mCardBounds.height() - 2 * inset, -mCornerRadius, mEdgeShadowPaint!!)
         }
         canvas.restoreToCount(saved)
-        // RT
+        // RT 右上
         saved = canvas.save()
         canvas.translate(mCardBounds.right - inset, mCardBounds.top + inset)
         canvas.rotate(90f)

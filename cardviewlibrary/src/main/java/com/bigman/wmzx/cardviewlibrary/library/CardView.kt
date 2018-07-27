@@ -380,6 +380,8 @@ class CardView : FrameLayout {
         }
     }
 
+    private var mTopDelta: Float=1f
+
     private fun initialize(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         val a = context.obtainStyledAttributes(attrs, R.styleable.CardView, defStyleAttr,
                 R.style.CardView)
@@ -425,6 +427,9 @@ class CardView : FrameLayout {
 
         val a2 = context.obtainStyledAttributes(attrs, R.styleable.CardViewShadow)
         val n = a2.indexCount
+        if(a2.hasValue(R.styleable.CardViewShadow_topDelta)){
+            mTopDelta=a2.getFloat(R.styleable.CardViewShadow_topDelta,0f)
+        }
         if (a2.hasValue(R.styleable.CardViewShadow_endColor) && a2.hasValue(R.styleable.CardViewShadow_startColor)) {
             for (i in 0 until n) {
                 val attr = a.getIndex(i)
@@ -435,10 +440,10 @@ class CardView : FrameLayout {
 
             }
             IMPL.initialize(mCardViewDelegate, context, backgroundColor, radius,
-                    elevation, maxElevation, mStartColor, mEndColor)
+                    elevation, maxElevation, mStartColor, mEndColor,mTopDelta)
         } else {
             IMPL.initialize(mCardViewDelegate, context, backgroundColor, radius,
-                    elevation, maxElevation)
+                    elevation, maxElevation,mTopDelta)
         }
 
 

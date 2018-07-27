@@ -14,9 +14,13 @@ import com.bigman.wmzx.customcardview.library.RoundRectDrawableWithShadow
 
 @RequiresApi(21)
 internal class CardViewApi21Impl : CardViewImpl {
+    override fun initialize(cardViewDelegate: CardViewDelegate, context: Context, backgroundColor: ColorStateList,
+                            radius: Float, elevation: Float, maxElevation: Float, startColor: Int, endColor: Int, topDelta: Float) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
-    override fun initialize(cardView: CardViewDelegate, context: Context,
-                            backgroundColor: ColorStateList, radius: Float, elevation: Float, maxElevation: Float) {
+    override fun initialize(cardView: CardViewDelegate, context: Context, backgroundColor: ColorStateList, radius: Float
+                            , elevation: Float, maxElevation: Float, topDelta: Float) {
         val background = RoundRectDrawable(backgroundColor, radius)
         cardView.cardBackground = background
 
@@ -25,6 +29,8 @@ internal class CardViewApi21Impl : CardViewImpl {
         view.elevation = elevation
         setMaxElevation(cardView, maxElevation)
     }
+
+
 
     override fun setRadius(cardView: CardViewDelegate, radius: Float) {
         getCardBackground(cardView).radius = radius
@@ -92,9 +98,7 @@ internal class CardViewApi21Impl : CardViewImpl {
         return getCardBackground(cardView).color
     }
 
-    override fun initialize(cardViewDelegate: CardViewDelegate, context: Context, backgroundColor: ColorStateList, radius: Float, elevation: Float, maxElevation: Float, startColor: Int, endColor: Int) {
 
-    }
 
     private fun getCardBackground(cardView: CardViewDelegate): RoundRectDrawable {
         return cardView.cardBackground as RoundRectDrawable

@@ -7,7 +7,7 @@ import com.bigman.wmzx.cardviewlibrary.library.CardViewDelegate
 
 internal interface CardViewImpl {
     fun initialize(cardView: CardViewDelegate, context: Context, backgroundColor: ColorStateList,
-                   radius: Float, elevation: Float, maxElevation: Float)
+                   radius: Float, elevation: Float, maxElevation: Float, topDelta: Float)
 
     fun setRadius(cardView: CardViewDelegate, radius: Float)
 
@@ -38,5 +38,6 @@ internal interface CardViewImpl {
     fun getBackgroundColor(cardView: CardViewDelegate): ColorStateList
 
     fun initialize(cardViewDelegate: CardViewDelegate, context: Context,
-                   backgroundColor: ColorStateList, radius: Float, elevation: Float, maxElevation: Float, startColor: Int, endColor: Int)
+                   backgroundColor: ColorStateList, radius: Float, elevation: Float
+                   , maxElevation: Float, startColor: Int, endColor: Int, topDelta: Float)
 }
