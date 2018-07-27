@@ -3,7 +3,6 @@
 这个库是基于google官方库，所以基本属性相同，增加三个属性，暂时只支持xml配置，分别是`startColor`，`endColor`，`topDelta`，意思是支持修改渐变颜色值，而`topDelta`是1.0.1版本加进来支持修改上下阴影比例的，取值范围是-1到1的浮点值，具体效果可以看截图
 
 依赖方式
-[[图片上传失败...(image-b2fd22-1532657290200)]](https://jitpack.io/#bigmanLau/CardviewFix)
 ````
 dependencies {
 	        implementation 'com.github.bigmanLau:CardviewFix:1.0.1'
