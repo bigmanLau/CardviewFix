@@ -5,7 +5,7 @@
 依赖方式
 ````
 dependencies {
-	        implementation 'com.github.bigmanLau:CardviewFix:1.0.1'
+	        implementation 'com.github.bigmanLau:CardviewFix:1.0.3'
 	}
 ````
 
