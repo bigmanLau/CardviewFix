@@ -1,7 +1,10 @@
 # CardviewFix 简书地址 [https://www.jianshu.com/p/8c8b2708bdb4]
-#####原生的CardView虽然好，但是公司UI设计必须修改阴影颜色
+
+##### 原生的CardView虽然好，但是公司UI设计必须修改阴影颜色
 这个库是基于google官方库，所以基本属性相同，增加三个属性，暂时只支持xml配置，分别是`startColor`，`endColor`，`topDelta`，意思是支持修改渐变颜色值，而`topDelta`是1.0.1版本加进来支持修改上下阴影比例的，取值范围是-1到1的浮点值，具体效果可以看截图
 
+
+>demo在另一个项目https://github.com/bigmanLau/Tablayout 去吧比卡丘
 依赖方式
 ````
 Step 1. Add the JitPack repository to your build file
